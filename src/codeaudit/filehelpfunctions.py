@@ -57,14 +57,20 @@ def collect_python_source_files(directory):
     python_files = []
 
     for root, dirs, files in os.walk(directory):
+        print(f"{root=}")
+        print(f"{dirs=}")
+        print(f"{files=}")
         # Filter out unwanted directories
-        dirs[:] = [
-            d
-            for d in dirs
-            if not (d.startswith(".") or d.startswith("_") or d in EXCLUDE_DIRS)
-        ]
+        # dirs[:] = [
+        #     d
+        #     for d in dirs
+        #     if not (d.startswith(".") or d.startswith("_") or d in EXCLUDE_DIRS)
+        # ]
 
+        print(f"{dirs=}")
         for file in files:
+            print(f"{file=}")
+            print(f"{os.path.isfile=}")
             if file.endswith(".py") and not file.startswith("."):
                 full_path = os.path.join(root, file)
                 if os.path.isfile(full_path):
